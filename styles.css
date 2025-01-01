@@ -1,0 +1,66 @@
+/* styles.css */
+
+/* Container to center the card on the page */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    width: 300px;
+    height: 500px;
+    perspective: 1000px;  /* Adds 3D perspective */
+}
+
+/* The card itself */
+.card .card-front,
+.card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the back when flipped */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Front of the card */
+.card .card-front {
+    background: #f5f5f5;
+    /* You can also add your front design with a background image or color */
+}
+
+/* Back of the card */
+.card .card-back {
+    background: #333;
+    transform: rotateY(180deg); /* Start by rotating the back */
+    color: white;
+    /* Your back card design (e.g., an image or text) */
+}
+
+/* Card flip effect when hovered */
+.card:hover .card-front {
+    transform: rotateY(180deg);
+}
+
+.card:hover .card-back {
+    transform: rotateY(0deg);
+}
+
+/* Optional: Add a smooth transition for the flip */
+.card .card-front,
+.card .card-back {
+    transition: transform 0.6s ease-in-out;
+}
+
+
+/* Trigger the flip when the card has the 'flipped' class */
+.card.flipped .card-front {
+    transform: rotateY(180deg);
+}
+
+.card.flipped .card-back {
+    transform: rotateY(0deg);
+}
